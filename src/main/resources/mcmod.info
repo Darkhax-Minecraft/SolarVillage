@@ -1,0 +1,13 @@
+[{
+	"modid": "solarvillage",
+	"name": "Solar Village",
+	"description": "A solar panel mod for Minecraft and the Tesla API",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
+	"url": "",
+	"updateUrl": "",
+	"authorList": ["Darkhax"],
+	"logoFile": "",
+	"screenshots": [],
+	"dependencies": []
+}]
