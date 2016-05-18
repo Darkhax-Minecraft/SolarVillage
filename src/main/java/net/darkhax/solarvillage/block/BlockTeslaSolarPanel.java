@@ -18,6 +18,9 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.darkhax.solarvillage.handler.SolarVillageConfig;
 import net.darkhax.solarvillage.tileentity.SolarTeslaContainer;
 import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
@@ -35,6 +38,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
         this.setHardness(0.2F);
         this.setSoundType(SoundType.METAL);
         this.setCreativeTab(CreativeTabs.MISC);
+        this.setLightOpacity(0);
     }
     
     @Override
@@ -80,5 +84,24 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     public AxisAlignedBB getBoundingBox (IBlockState state, IBlockAccess source, BlockPos pos) {
         
         return BOUNDS;
+    }
+    
+    @Override
+    public boolean isFullCube (IBlockState state) {
+        
+        return false;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered (IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+        
+        return side == EnumFacing.UP ? true : blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? true : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+    }
+    
+    @Override
+    public boolean doesSideBlockRendering (IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+        
+        return face == EnumFacing.DOWN;
     }
 }
