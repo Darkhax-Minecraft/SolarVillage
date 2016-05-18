@@ -1,0 +1,36 @@
+{
+    "parent": "block/thin_block",
+    "textures": {
+        "case": "solarvillage:blocks/case",
+        "panel": "solarvillage:blocks/panel",
+        "particle": "solarvillage:blocks/panel"
+    },
+    "elements": [
+        {
+            "name": "case",
+            "from": [ 0.0, 0.0, 0.0 ], 
+            "to": [ 16.0, 6.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 6.0 ] },
+                "east": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 6.0 ] },
+                "south": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 6.0 ] },
+                "west": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 6.0 ] },
+                "up": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#case", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        },
+        {
+            "name": "panel",
+            "from": [ 1.0, 5.0, 1.0 ], 
+            "to": [ 15.0, 6.100000001490116, 15.0 ], 
+            "faces": {
+                "north": { "texture": "#panel", "uv": [ 0.0, 0.0, 14.0, 1.1000000014901161 ] },
+                "east": { "texture": "#panel", "uv": [ 0.0, 0.0, 14.0, 1.1000000014901161 ] },
+                "south": { "texture": "#panel", "uv": [ 0.0, 0.0, 14.0, 1.1000000014901161 ] },
+                "west": { "texture": "#panel", "uv": [ 0.0, 0.0, 14.0, 1.1000000014901161 ] },
+                "up": { "texture": "#panel", "uv": [ 1.0, 1.0, 15.0, 15.0 ] },
+                "down": { "texture": "#panel", "uv": [ 0.0, 0.0, 14.0, 14.0 ] }
+            }
+        }
+    ]
+}
