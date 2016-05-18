@@ -29,11 +29,11 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     
     public BlockTeslaSolarPanel() {
         
-        super(Material.CIRCUITS);
+        super(Material.IRON);
         this.isBlockContainer = true;
         this.setUnlocalizedName("solarvillage.panel");
         this.setHardness(0.2F);
-        this.setSoundType(SoundType.WOOD);
+        this.setSoundType(SoundType.METAL);
         this.setCreativeTab(CreativeTabs.MISC);
     }
     
