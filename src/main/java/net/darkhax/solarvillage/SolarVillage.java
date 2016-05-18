@@ -15,6 +15,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import net.darkhax.solarvillage.block.BlockTeslaSolarPanel;
 import net.darkhax.solarvillage.common.ProxyCommon;
+import net.darkhax.solarvillage.handler.SolarVillageConfig;
 import net.darkhax.solarvillage.lib.Constants;
 import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
 
@@ -35,6 +36,7 @@ public class SolarVillage {
         blockSolarPanel = this.registerBlock(new BlockTeslaSolarPanel(), "panel");
         GameRegistry.registerTileEntity(TileEntityTeslaSolarPanel.class, "panel");
         GameRegistry.addShapedRecipe(new ItemStack(blockSolarPanel), "ggg", "lql", "iri", 'g', Blocks.GLASS, 'l', new ItemStack(Items.DYE, 1, 4), 'r', Items.REDSTONE, 'i', Items.IRON_INGOT, 'q', Items.QUARTZ);
+        SolarVillageConfig.initConfig(event.getSuggestedConfigurationFile());
         proxy.onPreInit();
     }
     
