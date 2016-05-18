@@ -1,7 +1,6 @@
 package net.darkhax.solarvillage;
 
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
@@ -16,7 +15,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import net.darkhax.solarvillage.block.BlockTeslaSolarPanel;
 import net.darkhax.solarvillage.common.ProxyCommon;
-import net.darkhax.solarvillage.creativetabs.CreativeTabTeslaFlux;
 import net.darkhax.solarvillage.lib.Constants;
 import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
 
@@ -29,7 +27,6 @@ public class SolarVillage {
     @Instance(Constants.MOD_ID)
     public static SolarVillage instance;
     
-    public static final CreativeTabs TAB = new CreativeTabTeslaFlux();
     public static Block blockSolarPanel;
     
     @EventHandler

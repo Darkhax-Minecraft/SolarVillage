@@ -5,6 +5,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -17,7 +18,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import net.darkhax.solarvillage.SolarVillage;
 import net.darkhax.solarvillage.handler.SolarVillageConfig;
 import net.darkhax.solarvillage.tileentity.SolarTeslaContainer;
 import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
@@ -34,7 +34,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
         this.setUnlocalizedName("solarvillage.panel");
         this.setHardness(0.2F);
         this.setSoundType(SoundType.WOOD);
-        this.setCreativeTab(SolarVillage.TAB);
+        this.setCreativeTab(CreativeTabs.MISC);
     }
     
     @Override
