@@ -1,5 +1,6 @@
 package net.darkhax.solarvillage.tileentity;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
@@ -22,6 +23,20 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
         
         if (this.hasWorldObj() && !this.worldObj.provider.getHasNoSky() && this.worldObj.canBlockSeeSky(this.pos.offset(EnumFacing.UP)) && !this.worldObj.isRaining() && this.worldObj.getSkylightSubtracted() == 0 && this.container.getStoredPower() != this.container.getCapacity())
             this.container.generatePower();
+    }
+    
+    @Override
+    public void readFromNBT (NBTTagCompound compound) {
+        
+        super.readFromNBT(compound);
+        this.container.setPower(compound.getLong("StoredPower"));
+    }
+    
+    @Override
+    public void writeToNBT (NBTTagCompound compound) {
+        
+        super.writeToNBT(compound);
+        compound.setLong("StoredPower", this.container.getStoredPower());
     }
     
     @Override

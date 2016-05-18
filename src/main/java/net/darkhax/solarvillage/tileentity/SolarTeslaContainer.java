@@ -41,4 +41,14 @@ public class SolarTeslaContainer implements ITeslaHolder, ITeslaProducer {
         if (this.storedPower > this.getCapacity())
             this.storedPower = this.getCapacity();
     }
+    
+    /**
+     * Sets the power of the container. Should only be used internally!
+     * 
+     * @param power
+     */
+    protected void setPower (long power) {
+        
+        this.storedPower = power;
+    }
 }
