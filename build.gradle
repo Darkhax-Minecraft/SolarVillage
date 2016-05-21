@@ -18,7 +18,7 @@ buildscript {
 
     dependencies {
 
-        classpath "net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT"
+        classpath "net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT"
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
     }
 }
@@ -34,9 +34,9 @@ version = getVersionFromJava(file("src/main/java/net/darkhax/solarvillage/lib/Co
 //Defines the MC environment information.
 minecraft {
 
-    version = "1.9-12.16.1.1887"
+    version = "1.9.4-12.17.0.1909-1.9.4"
     runDir = "run"
-    mappings = "snapshot_20160501"
+    mappings = "snapshot_20160518"
 }
 
 //Defines basic patterns for pulling various dependencies.
@@ -50,7 +50,7 @@ repositories {
 
 dependencies {
 
-    compile "net.darkhax.tesla:Tesla:1.9-1.0.2.23"
+    compile "net.darkhax.tesla:Tesla:1.9.4-1.1.0.24"
 }
 
 //Handles basic resources such as mcmod.info
@@ -104,7 +104,7 @@ String getVersionFromJava(File file) {
 
     file.write(outfile);
 
-    return "1.9-$release.$update.$patch.$build";
+    return "1.9.4-$release.$update.$patch.$build";
 }
 
 //Creates the source jar.
@@ -180,7 +180,7 @@ curseforge {
         releaseType = project.releaseType;
         changelog = project.changelog;
 
-        addGameVersion "1.9"
+        addGameVersion "1.9.4"
         
         addArtifact(deobfJar)
         addArtifact(sourcesJar)
