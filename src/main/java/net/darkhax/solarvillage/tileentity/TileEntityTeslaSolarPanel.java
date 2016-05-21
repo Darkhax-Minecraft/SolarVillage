@@ -33,10 +33,10 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
     }
     
     @Override
-    public void writeToNBT (NBTTagCompound compound) {
+    public NBTTagCompound writeToNBT (NBTTagCompound compound) {
         
-        super.writeToNBT(compound);
         compound.setLong("StoredPower", this.container.getStoredPower());
+        return super.writeToNBT(compound);
     }
     
     @Override
