@@ -180,6 +180,16 @@ curseforge {
         releaseType = project.releaseType;
         changelog = project.changelog;
 
+        //Adds main jar, deobf jar, source jar, and javadoc jar to the upload.
+        mainArtifact(jar) {
+          
+            relations {
+
+                //Adds the file relations to the upload.
+                requiredLibrary 'TESLA'
+            }
+        }
+        
         addGameVersion "1.9.4"
         
         addArtifact(deobfJar)
