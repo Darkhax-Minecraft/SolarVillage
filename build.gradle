@@ -9,6 +9,12 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
+        
+        maven {
+            
+            name = "Modmuss50"
+            url = "http://maven.modmuss50.me/"
+        }
 
         maven {
 
@@ -20,12 +26,14 @@ buildscript {
 
         classpath "net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT"
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
+        classpath "ModsIOUpload:ModsIOUpload:+"
     }
 }
 
 apply plugin: "maven"
 apply plugin: "net.minecraftforge.gradle.forge"
 apply plugin: "com.matthewprenger.cursegradle"
+apply plugin: "net.cazzar.gradle.modsio"
 
 group = "net.darkhax.sollarvillage"
 archivesBaseName = "SolarVillage"
@@ -148,12 +156,6 @@ uploadArchives {
     }
 }
 
-task setCurseForgeInfo() {
-
-    project.ext.releaseType = "alpha";
-    project.ext.changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master";
-}
-
 //Prevents incomplete JavaDocs from preventing a build on Java 8.
 if (JavaVersion.current().isJava8Compatible()) {
 
@@ -168,17 +170,17 @@ if (JavaVersion.current().isJava8Compatible()) {
 
 //Provides the basic CurseForge upload details
 curseforge {
-
+    
     //Sets the API from the system environment, if available.
     apiKey = System.getenv("curseForgeApiKey") ? System.getenv("curseForgeApiKey") : "0";
 
     project {
-
+    
         //Sets the Project ID from the system environment, if available.
         id = System.getenv("projectId") ? System.getenv("projectId") : "0";
 
-        releaseType = project.releaseType;
-        changelog = project.changelog;
+        releaseType = "alpha";
+        changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master";
 
         //Adds main jar, deobf jar, source jar, and javadoc jar to the upload.
         mainArtifact(jar) {
@@ -195,5 +197,21 @@ curseforge {
         addArtifact(deobfJar)
         addArtifact(sourcesJar)
         addArtifact(javadocJar)
+    }
+}
+
+modsIO {
+    
+    //Sets the Mods.io key from the system environement, if available.
+    key = System.getenv("modsIOKey") ? System.getenv("modsIOKey") : "0";
+    
+    project {
+    
+        artifact = jar.archivePath;
+        modid = 1203;
+        minecraft = version;
+        changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master";
+        tag = "alpha";
+        current = false;
     }
 }
