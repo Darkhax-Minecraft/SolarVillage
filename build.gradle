@@ -33,7 +33,7 @@ buildscript {
 apply plugin: "maven"
 apply plugin: "net.minecraftforge.gradle.forge"
 apply plugin: "com.matthewprenger.cursegradle"
-apply plugin: "net.cazzar.gradle.modsio"
+apply plugin: "modsio"
 
 group = "net.darkhax.sollarvillage"
 archivesBaseName = "SolarVillage"
