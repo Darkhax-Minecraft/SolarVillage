@@ -5,6 +5,8 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiNewChat;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,6 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
@@ -28,7 +31,8 @@ import net.darkhax.tesla.capability.TeslaCapabilities;
 
 public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     
-    protected static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
+    private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
+    private static final int CHAT_ID = 47194716;
     
     public BlockTeslaSolarPanel() {
         
@@ -44,7 +48,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     @Override
     public boolean onBlockActivated (World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
         
-        if (!worldIn.isRemote) {
+        if (worldIn.isRemote) {
             
             final TileEntity tile = worldIn.getTileEntity(pos);
             
@@ -52,7 +56,8 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
                 
                 final TileEntityTeslaSolarPanel panel = (TileEntityTeslaSolarPanel) tile;
                 final SolarTeslaContainer container = (SolarTeslaContainer) panel.getCapability(TeslaCapabilities.CAPABILITY_HOLDER, EnumFacing.DOWN);
-                playerIn.addChatMessage(new TextComponentString(String.format(I18n.translateToLocal("message.solarvillage.panel.status"), container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
+                
+                sendSpamlessMessage(CHAT_ID, new TextComponentString(String.format(I18n.translateToLocal("message.solarvillage.panel.status"), container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
             }
         }
         
@@ -67,10 +72,10 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     }
     
     @Override
-    public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param) {
+    public boolean eventReceived (IBlockState state, World worldIn, BlockPos pos, int id, int param) {
         
         super.eventReceived(state, worldIn, pos, id, param);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
+        final TileEntity tileentity = worldIn.getTileEntity(pos);
         return tileentity == null ? false : tileentity.receiveClientEvent(id, param);
     }
     
@@ -103,5 +108,23 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     public boolean doesSideBlockRendering (IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         
         return face == EnumFacing.DOWN;
+    }
+    
+    /**
+     * Sends a spamless message to the chat. A spamless message is one that only shows up in
+     * the chat once. If another version of the message were to be added to chat, the earlier
+     * one would be removed.
+     * 
+     * @param messageID A unique message ID used to seperate your message from the others. It
+     *            is highly recommended to use a random number to prevent conflicts with other
+     *            mods doing similar things. Each message type should have it's own ID.
+     * @param message The message to send to chat, this message will replace earlier messages
+     *            in the gui that use the same ID.
+     */
+    @SideOnly(Side.CLIENT)
+    private static void sendSpamlessMessage (int messageID, ITextComponent message) {
+        
+        final GuiNewChat chat = Minecraft.getMinecraft().ingameGUI.getChatGUI();
+        chat.printChatMessageWithOptionalDeletion(message, messageID);
     }
 }
