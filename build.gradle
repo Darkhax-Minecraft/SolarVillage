@@ -209,7 +209,7 @@ modsIO {
     
         artifact = jar.archivePath
         modid = "1203"
-        minecraft = version
+        minecraft = "1.9.4"
         changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master"
         tag = "alpha"
         current = false
