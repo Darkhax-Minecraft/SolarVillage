@@ -33,7 +33,7 @@ buildscript {
 apply plugin: "maven"
 apply plugin: "net.minecraftforge.gradle.forge"
 apply plugin: "com.matthewprenger.cursegradle"
-apply plugin: "modsio"
+apply plugin: 'net.cazzar.gradle.modsio'
 
 group = "net.darkhax.sollarvillage"
 archivesBaseName = "SolarVillage"
@@ -207,11 +207,11 @@ modsIO {
     
     project {
     
-        artifact = jar.archivePath;
-        modid = 1203;
-        minecraft = version;
-        changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master";
-        tag = "alpha";
-        current = false;
+        artifact = jar.archivePath
+        modid = "1203"
+        minecraft = version
+        changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master"
+        tag = "alpha"
+        current = false
     }
 }
