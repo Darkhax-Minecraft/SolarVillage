@@ -52,7 +52,7 @@ repositories {
 
     maven {
 
-        url 'http://maven.rubbix.net'
+        url 'http://maven.epoxide.xyz'
     }
 }
 
