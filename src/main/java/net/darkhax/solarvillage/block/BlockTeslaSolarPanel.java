@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiNewChat;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,7 +18,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -57,7 +57,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
                 final TileEntityTeslaSolarPanel panel = (TileEntityTeslaSolarPanel) tile;
                 final SolarTeslaContainer container = (SolarTeslaContainer) panel.getCapability(TeslaCapabilities.CAPABILITY_HOLDER, EnumFacing.DOWN);
                 
-                sendSpamlessMessage(CHAT_ID, new TextComponentString(String.format(I18n.translateToLocal("message.solarvillage.panel.status"), container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
+                sendSpamlessMessage(CHAT_ID, new TextComponentString(String.format(I18n.format("message.solarvillage.panel.status"), container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
             }
         }
         
