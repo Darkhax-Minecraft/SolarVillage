@@ -42,7 +42,7 @@ version = getVersionFromJava(file("src/main/java/net/darkhax/solarvillage/lib/Co
 //Defines the MC environment information.
 minecraft {
 
-    version = "1.9.4-12.17.0.1909-1.9.4"
+    version = "1.10-12.18.0.1986-1.10.0"
     runDir = "run"
     mappings = "snapshot_20160518"
 }
@@ -112,7 +112,7 @@ String getVersionFromJava(File file) {
 
     file.write(outfile);
 
-    return "1.9.4-$release.$update.$patch.$build";
+    return "1.10-$release.$update.$patch.$build";
 }
 
 //Creates the source jar.
@@ -192,7 +192,7 @@ curseforge {
             }
         }
         
-        addGameVersion "1.9.4"
+        addGameVersion "1.10"
         
         addArtifact(deobfJar)
         addArtifact(sourcesJar)
@@ -209,7 +209,7 @@ modsIO {
     
         artifact = jar.archivePath
         modid = "1203"
-        minecraft = "1.9.4"
+        minecraft = "1.10"
         changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/SolarVillage/commits/master"
         tag = "alpha"
         current = false
