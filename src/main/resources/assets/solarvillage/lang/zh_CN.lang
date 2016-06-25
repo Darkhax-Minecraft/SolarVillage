@@ -1,0 +1,7 @@
+#Simplified Chinese Language File
+
+#Blocks
+tile.solarvillage.panel.name=太阳能电池板
+
+#Message
+message.solarvillage.panel.status=电池板当前能量：%dT/%dT，产能速度为%dT/tick。
