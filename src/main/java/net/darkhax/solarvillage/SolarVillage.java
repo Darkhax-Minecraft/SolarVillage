@@ -19,7 +19,7 @@ import net.darkhax.solarvillage.handler.SolarVillageConfig;
 import net.darkhax.solarvillage.lib.Constants;
 import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
 
-@Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER, guiFactory = Constants.FACTORY)
+@Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER, guiFactory = Constants.FACTORY, acceptedMinecraftVersions = "[1.9.4,1.10.2]")
 public class SolarVillage {
     
     @SidedProxy(serverSide = Constants.PROXY_COMMON, clientSide = Constants.PROXY_CLIENT)
