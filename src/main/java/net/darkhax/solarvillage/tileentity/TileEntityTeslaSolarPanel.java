@@ -10,6 +10,7 @@ import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
 import net.darkhax.solarvillage.handler.SolarVillageConfig;
 import net.darkhax.tesla.capability.TeslaCapabilities;
+import net.darkhax.tesla.api.ITeslaConsumer;
 
 public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
     
@@ -30,7 +31,7 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
         	
         	final TileEntity tile = this.getWorld().getTileEntity(this.getPos().offset(EnumFacing.DOWN));
         	if (tile.hasCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP))
-        		((ITeslaConsumer) tile.getCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP)).givePower(Math.min(this.container.getStoredPower(), SolarVillageConfig.panelTransferRate), false);
+        		this.container.takePower(((ITeslaConsumer) tile.getCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP)).givePower(Math.min(this.container.getStoredPower(), SolarVillageConfig.panelTransferRate), false), false);
         }
     }
     
