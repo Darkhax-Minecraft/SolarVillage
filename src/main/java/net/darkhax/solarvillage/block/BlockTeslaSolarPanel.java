@@ -57,7 +57,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
                 final TileEntityTeslaSolarPanel panel = (TileEntityTeslaSolarPanel) tile;
                 final SolarTeslaContainer container = (SolarTeslaContainer) panel.getCapability(TeslaCapabilities.CAPABILITY_HOLDER, EnumFacing.DOWN);
                 
-                sendSpamlessMessage(CHAT_ID, new TextComponentString(String.format(I18n.format("message.solarvillage.panel.status"), container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
+                sendSpamlessMessage(CHAT_ID, new TextComponentString(I18n.format("message.solarvillage.panel.status", container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
             }
         }
         
