@@ -25,13 +25,13 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
     public void update () {
         
         if (this.hasWorldObj()) {
-        	
-        	if (!this.worldObj.provider.getHasNoSky() && this.worldObj.canBlockSeeSky(this.pos.offset(EnumFacing.UP)) && !this.worldObj.isRaining() && this.worldObj.getSkylightSubtracted() == 0 && this.container.getStoredPower() != this.container.getCapacity())
+            
+            if (!this.worldObj.provider.getHasNoSky() && this.worldObj.canBlockSeeSky(this.pos.offset(EnumFacing.UP)) && !this.worldObj.isRaining() && this.worldObj.getSkylightSubtracted() == 0 && this.container.getStoredPower() != this.container.getCapacity())
                 this.container.generatePower();
-        	
-        	final TileEntity tile = this.getWorld().getTileEntity(this.getPos().offset(EnumFacing.DOWN));
-        	if (tile != null && !tile.isInvalid() && tile.hasCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP))
-        		this.container.takePower(((ITeslaConsumer) tile.getCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP)).givePower(Math.min(this.container.getStoredPower(), SolarVillageConfig.panelTransferRate), false), false);
+                
+            final TileEntity tile = this.getWorld().getTileEntity(this.getPos().offset(EnumFacing.DOWN));
+            if (tile != null && !tile.isInvalid() && tile.hasCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP))
+                this.container.takePower(((ITeslaConsumer) tile.getCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP)).givePower(Math.min(this.container.getStoredPower(), SolarVillageConfig.panelTransferRate), false), false);
         }
     }
     
@@ -53,6 +53,12 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
     public SPacketUpdateTileEntity getUpdatePacket () {
         
         return new SPacketUpdateTileEntity(this.pos, 0, this.getUpdateTag());
+    }
+    
+    @Override
+    public NBTTagCompound getUpdateTag () {
+        
+        return this.writeToNBT(new NBTTagCompound());
     }
     
     @Override
