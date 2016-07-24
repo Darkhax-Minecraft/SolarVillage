@@ -30,7 +30,7 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
                 this.container.generatePower();
         	
         	final TileEntity tile = this.getWorld().getTileEntity(this.getPos().offset(EnumFacing.DOWN));
-        	if (tile.hasCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP))
+        	if (tile != null && !tile.isInvalid() && tile.hasCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP))
         		this.container.takePower(((ITeslaConsumer) tile.getCapability(TeslaCapabilities.CAPABILITY_CONSUMER, EnumFacing.UP)).givePower(Math.min(this.container.getStoredPower(), SolarVillageConfig.panelTransferRate), false), false);
         }
     }
