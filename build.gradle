@@ -42,7 +42,7 @@ version = getVersionFromJava(file("src/main/java/net/darkhax/solarvillage/lib/Co
 //Defines the MC environment information.
 minecraft {
 
-    version = "1.10.2-12.18.1.2018"
+    version = "1.10.2-12.18.1.2088"
     runDir = "run"
     mappings = "snapshot_20160518"
     useDepAts = true
