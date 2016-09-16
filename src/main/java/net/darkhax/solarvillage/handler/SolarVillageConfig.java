@@ -2,11 +2,10 @@ package net.darkhax.solarvillage.handler;
 
 import java.io.File;
 
+import net.darkhax.solarvillage.lib.Constants;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import net.darkhax.solarvillage.lib.Constants;
 
 public class SolarVillageConfig {
     

@@ -1,23 +1,21 @@
 package net.darkhax.solarvillage;
 
+import net.darkhax.solarvillage.block.BlockTeslaSolarPanel;
+import net.darkhax.solarvillage.common.ProxyCommon;
+import net.darkhax.solarvillage.handler.SolarVillageConfig;
+import net.darkhax.solarvillage.lib.Constants;
+import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import net.darkhax.solarvillage.block.BlockTeslaSolarPanel;
-import net.darkhax.solarvillage.common.ProxyCommon;
-import net.darkhax.solarvillage.handler.SolarVillageConfig;
-import net.darkhax.solarvillage.lib.Constants;
-import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
 
 @Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER, guiFactory = Constants.FACTORY, acceptedMinecraftVersions = "[1.9.4,1.10.2]")
 public class SolarVillage {

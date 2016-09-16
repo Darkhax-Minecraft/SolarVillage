@@ -3,15 +3,13 @@ package net.darkhax.solarvillage.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.darkhax.solarvillage.handler.SolarVillageConfig;
+import net.darkhax.solarvillage.lib.Constants;
 import net.minecraft.client.gui.GuiScreen;
-
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
-
-import net.darkhax.solarvillage.handler.SolarVillageConfig;
-import net.darkhax.solarvillage.lib.Constants;
 
 public class GuiConfigSolarVillage extends GuiConfig {
     

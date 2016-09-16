@@ -1,5 +1,9 @@
 package net.darkhax.solarvillage.block;
 
+import net.darkhax.solarvillage.handler.SolarVillageConfig;
+import net.darkhax.solarvillage.tileentity.SolarEnergyContainer;
+import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
+import net.darkhax.tesla.capability.TeslaCapabilities;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -20,14 +24,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.darkhax.solarvillage.handler.SolarVillageConfig;
-import net.darkhax.solarvillage.tileentity.SolarTeslaContainer;
-import net.darkhax.solarvillage.tileentity.TileEntityTeslaSolarPanel;
-import net.darkhax.tesla.capability.TeslaCapabilities;
 
 public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     
@@ -55,7 +53,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
             if (tile instanceof TileEntityTeslaSolarPanel && !tile.isInvalid()) {
                 
                 final TileEntityTeslaSolarPanel panel = (TileEntityTeslaSolarPanel) tile;
-                final SolarTeslaContainer container = (SolarTeslaContainer) panel.getCapability(TeslaCapabilities.CAPABILITY_HOLDER, EnumFacing.DOWN);
+                final SolarEnergyContainer container = (SolarEnergyContainer) panel.getCapability(TeslaCapabilities.CAPABILITY_HOLDER, EnumFacing.DOWN);
                 
                 sendSpamlessMessage(CHAT_ID, new TextComponentString(I18n.format("message.solarvillage.panel.status", container.getStoredPower(), container.getCapacity(), SolarVillageConfig.panelPowerGen)));
             }
@@ -116,10 +114,10 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
      * one would be removed.
      * 
      * @param messageID A unique message ID used to seperate your message from the others. It
-     *            is highly recommended to use a random number to prevent conflicts with other
-     *            mods doing similar things. Each message type should have it's own ID.
+     *        is highly recommended to use a random number to prevent conflicts with other mods
+     *        doing similar things. Each message type should have it's own ID.
      * @param message The message to send to chat, this message will replace earlier messages
-     *            in the gui that use the same ID.
+     *        in the gui that use the same ID.
      */
     @SideOnly(Side.CLIENT)
     private static void sendSpamlessMessage (int messageID, ITextComponent message) {
