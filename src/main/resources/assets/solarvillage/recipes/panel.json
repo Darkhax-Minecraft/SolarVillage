@@ -1,0 +1,33 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"ggg",
+		"lql",
+		"iri"
+	],
+	"key": {
+		"g": {
+			"type": "forge:ore_dict",
+			"ore": "blockGlass"
+		},
+		"l": {
+			"type": "forge:ore_dict",
+			"ore": "dyeBlue"
+		},
+		"q": {
+			"type": "forge:ore_dict",
+			"ore": "gemQuartz"
+		},
+		"i": {
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		},
+		"r": {
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		}
+	},
+	"result": {
+		"item": "solarvillage:panel"
+	}
+}
