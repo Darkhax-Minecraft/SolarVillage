@@ -28,7 +28,7 @@ public class TileEntityTeslaSolarPanel extends TileEntity implements ITickable {
         
         if (this.hasWorld()) {
             
-            if (!this.world.provider.hasNoSky() && this.world.canBlockSeeSky(this.pos.offset(EnumFacing.UP)) && !this.world.isRaining() && this.world.getSkylightSubtracted() == 0 && this.container.getStoredPower() != this.container.getCapacity())
+            if (!this.world.provider.isNether() && this.world.canBlockSeeSky(this.pos.offset(EnumFacing.UP)) && !this.world.isRaining() && this.world.getSkylightSubtracted() == 0 && this.container.getStoredPower() != this.container.getCapacity())
                 this.container.generatePower();
                 
             final TileEntity tile = this.getWorld().getTileEntity(this.getPos().offset(EnumFacing.DOWN));

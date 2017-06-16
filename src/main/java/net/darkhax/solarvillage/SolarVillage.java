@@ -33,7 +33,6 @@ public class SolarVillage {
         
         blockSolarPanel = this.registerBlock(new BlockTeslaSolarPanel(), "panel");
         GameRegistry.registerTileEntity(TileEntityTeslaSolarPanel.class, "panel");
-        GameRegistry.addShapedRecipe(new ItemStack(blockSolarPanel), "ggg", "lql", "iri", 'g', Blocks.GLASS, 'l', new ItemStack(Items.DYE, 1, 4), 'r', Items.REDSTONE, 'i', Items.IRON_INGOT, 'q', Items.QUARTZ);
         SolarVillageConfig.initConfig(event.getSuggestedConfigurationFile());
         proxy.onPreInit();
     }
