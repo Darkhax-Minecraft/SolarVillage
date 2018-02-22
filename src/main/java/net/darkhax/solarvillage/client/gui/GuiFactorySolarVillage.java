@@ -22,21 +22,9 @@ public class GuiFactorySolarVillage implements IModGuiFactory {
     public GuiScreen createConfigGui(GuiScreen parentScreen) {
         return new GuiConfigSolarVillage(parentScreen);
     }
-
-    @Override
-    public Class<? extends GuiScreen> mainConfigGuiClass () {
-        
-        return GuiConfigSolarVillage.class;
-    }
     
     @Override
     public Set<RuntimeOptionCategoryElement> runtimeGuiCategories () {
-        
-        return null;
-    }
-    
-    @Override
-    public RuntimeOptionGuiHandler getHandlerFor (RuntimeOptionCategoryElement element) {
         
         return null;
     }

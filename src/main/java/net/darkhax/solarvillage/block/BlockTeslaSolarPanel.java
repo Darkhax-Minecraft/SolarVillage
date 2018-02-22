@@ -14,7 +14,6 @@ import net.minecraft.client.gui.GuiNewChat;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -35,7 +34,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
     public BlockTeslaSolarPanel() {
         
         super(SolarVillageConfig.panelWaterDamage ? Material.CIRCUITS : Material.IRON);
-        this.isBlockContainer = true;
+        this.hasTileEntity = true;
         this.setUnlocalizedName("solarvillage.panel");
         this.setHardness(0.2F);
         this.setSoundType(SoundType.METAL);
