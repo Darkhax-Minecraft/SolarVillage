@@ -35,7 +35,7 @@ public class BlockTeslaSolarPanel extends Block implements ITileEntityProvider {
         
         super(SolarVillageConfig.panelWaterDamage ? Material.CIRCUITS : Material.IRON);
         this.hasTileEntity = true;
-        this.setUnlocalizedName("solarvillage.panel");
+        this.setTranslationKey("solarvillage.panel");
         this.setHardness(0.2F);
         this.setSoundType(SoundType.METAL);
         this.setCreativeTab(CreativeTabs.MISC);
